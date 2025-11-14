@@ -67,7 +67,6 @@ function Register() {
           <label htmlFor="lname">Last Name</label>
           <input onChange={e => {
             setLname(e.target.value)
-            console.log(lname)
           }} type="text" />
         </div>
 
@@ -75,7 +74,6 @@ function Register() {
           <label htmlFor="lname">Email</label>
           <input onChange={e => {
             setEmail(e.target.value)
-            console.log(email)
           }} type="email" />
         </div>
 
@@ -83,7 +81,6 @@ function Register() {
           <label htmlFor="lname">Mobile</label>
           <input onChange={e => {
             setMobile(e.target.value)
-            console.log(mobile)
           }} type="tel" />
         </div>
 
@@ -91,7 +88,6 @@ function Register() {
           <label htmlFor="lname">Date of Birth</label>
           <input onChange={e => {
             setDob(e.target.value)
-            console.log(dob)
           }} type="date" />
         </div>
 
@@ -99,7 +95,6 @@ function Register() {
           <label htmlFor="password">Password</label>
           <input onChange={e => {
             setPassword(e.target.value)
-            console.log(password)
           }} type="password" />
         </div>
 
@@ -107,7 +102,6 @@ function Register() {
           <label htmlFor="confirm-password">Confirm Password</label>
           <input onChange={e => {
             setConfirmPassword(e.target.value)
-            console.log(confirm_password)
           }} type="password" />
         </div>
 

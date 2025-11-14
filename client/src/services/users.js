@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export async function register(fname, lname, email, mobile, dob, password){
     try{
-        const url = "http://localhost:4100/signUp";
+        const url = "http://localhost:4000/signUp";
 
         const body = {
             "first_name" : fname,
@@ -15,7 +15,7 @@ export async function register(fname, lname, email, mobile, dob, password){
 
         const response = await axios.post(url, body)
 
-        return response.data
+        return response
     }
     catch(ex){
         console.log("Exception : " + ex)
@@ -24,7 +24,7 @@ export async function register(fname, lname, email, mobile, dob, password){
 
 export async function login(email, password){
     try{
-        const url = "http://localhost:4100/signIn"
+        const url = "http://localhost:4000/signIn"
 
         const body = {
             "email" : email,
@@ -33,7 +33,7 @@ export async function login(email, password){
 
         const response = await axios.get(url, body)
 
-        return response.data
+        return response
     }
     catch(ex){
         console.log("Exception : " + ex)

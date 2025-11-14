@@ -1,0 +1,12 @@
+*{
+    margin: 0px;
+    padding: 0px;   
+}
+
+.container {
+    display: flex;
+    border: 1px solid gray;
+    margin: 10%;
+    justify-content: center;
+}
+

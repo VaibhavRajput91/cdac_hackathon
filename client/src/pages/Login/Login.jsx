@@ -39,10 +39,9 @@ function Login() {
       
       <div className="login-container">
         <div className='mb-3'>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email" >Email</label>
           <input onChange={(e) => {
             setEmail(e.target.value)
-            console.log(email)
           }} type="email" />
         </div>
 
@@ -50,14 +49,13 @@ function Login() {
           <label htmlFor="password">Password</label>
           <input onChange={(e) => {
             setPassword(e.target.value)
-            console.log(password)
           }} type="password" />
         </div>
 
         <div>New here? <Link to='/register'>Register</Link> </div>
 
         <div>
-          <button onClick={onLogin}>Submit</button>
+          <button className="btn btn-primary" onClick={onLogin}>Submit</button>
         </div>
       </div>
     </div>
