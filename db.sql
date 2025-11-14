@@ -30,5 +30,5 @@ create table reviews (
 create table movies (
     id int primary key auto_increment,
     title text,
-    release date
+    released date
 );
