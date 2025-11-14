@@ -2,7 +2,7 @@ import React from 'react'
 import { toast } from 'react-toastify'
 import { login } from '../../services/users';
 import { useState } from 'react'
-import { Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 function Login() {
@@ -10,7 +10,7 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const navigate = Navigate()
+  const navigate = useNavigate()
 
   const onLogin = () => {
     if(email.length == 0){
@@ -54,7 +54,7 @@ function Login() {
           }} type="password" />
         </div>
 
-        <div>New here? <a href="">Register Now</a></div>
+        <div>New here? <Link to='/register'>Register</Link> </div>
 
         <div>
           <button onClick={onLogin}>Submit</button>

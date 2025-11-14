@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { register } from '../../services/users';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {toast} from 'react-toastify'
 
 function Register() {
@@ -111,7 +111,7 @@ function Register() {
           }} type="password" />
         </div>
 
-        <div>Already registered? <a href="">Login</a></div>
+        <div>Already registered? <Link to='/login'>Login</Link> </div>
 
         <div>
           <button onClick={onRegister} className='btn btn-success'>Submit</button>
