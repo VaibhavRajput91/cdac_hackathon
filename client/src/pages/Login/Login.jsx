@@ -1,4 +1,5 @@
 import React from 'react'
+import './Login.css'
 import { toast } from 'react-toastify'
 import { login } from '../../services/users';
 import { useState } from 'react'
@@ -12,7 +13,7 @@ function Login() {
 
   const navigate = useNavigate()
 
-  const onLogin = () => {
+  const onLogin = async () => {
     if(email.length == 0){
       toast.warning("Please enter email")
     }
@@ -20,7 +21,7 @@ function Login() {
       toast.warning("Please enter the password")
     }
     else {
-      const response = login(email, password)
+      const response = await login(email, password)
       if(response.status == "success"){
         toast.success("Login successful")
         navigate('/home/properties')
@@ -38,15 +39,15 @@ function Login() {
       <div className="page-header">Login</div>
       
       <div className="login-container">
-        <div className='mb-3'>
+        <div className='mb-3 field'>
           <label htmlFor="email" >Email</label>
           <input onChange={(e) => {
             setEmail(e.target.value)
           }} type="email" />
         </div>
 
-        <div className='mb-3'>
-          <label htmlFor="password">Password</label>
+        <div className='mb-3 field'>
+          <label className="form-label" htmlFor="password">Password</label>
           <input onChange={(e) => {
             setPassword(e.target.value)
           }} type="password" />

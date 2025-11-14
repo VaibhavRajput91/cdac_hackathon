@@ -1,4 +1,5 @@
 import React from 'react'
+import './Register.css'
 import { useState } from 'react'
 import { register } from '../../services/users';
 import { Link, useNavigate } from 'react-router-dom';
@@ -16,13 +17,14 @@ function Register() {
 
     const navigate = useNavigate();
 
-    const onRegister = () =>{
+    const onRegister = async () =>{
         if(fname.length == 0){
             toast.warning("Please enter First name")
         }
         else if(lname.length == 0){
             toast.warning("Please enter Last name")
         }
+
         else if(email.length == 0){
             toast.warning("Please enter the Email")
         }
@@ -39,13 +41,13 @@ function Register() {
             toast.warning("Please Confirm the password")
         }
         else{
-            const response = register(fname, lname, email, mobile, dob, password)
-            if(response.status == "success"){
+            const response = await register(fname, lname, email, mobile, dob, password)
+            if(response["status"] == "success"){
                 toast.success("Registration successful");
                 navigate('/');
             }
             else{
-                toast.error(response["error"]);
+                toast.error(response.error.sqlMessage);
             }
         }
     }
@@ -55,50 +57,53 @@ function Register() {
       <div className="page-header">Register</div>
       
       <div className="login-container">
-        <div className='mb-3'>
-          <label htmlFor="fname">First Name</label>
-          <input onChange={e => {
-            setFname(e.target.value)
-            console.log(fname)
-          }} type="text" />
-        </div>
+        <div className='mb-3 field'>
+          <div className='mb-3 field'>
+            <label htmlFor="fname">First Name</label>
+            <input onChange={e => {
+              setFname(e.target.value)
+              console.log(fname)
+            }} type="text" />
+          </div>
 
-        <div className='mb-3'>
-          <label htmlFor="lname">Last Name</label>
-          <input onChange={e => {
-            setLname(e.target.value)
-          }} type="text" />
+          <div className='mb-3 field'>
+            <label htmlFor="lname">Last Name</label>
+            <input onChange={e => {
+              setLname(e.target.value)
+            }} type="text" />
+          </div>
         </div>
+        
 
-        <div className='mb-3'>
+        <div className='mb-3 field'>
           <label htmlFor="lname">Email</label>
           <input onChange={e => {
             setEmail(e.target.value)
           }} type="email" />
         </div>
 
-        <div className='mb-3'>
+        <div className='mb-3 field'>
           <label htmlFor="lname">Mobile</label>
           <input onChange={e => {
             setMobile(e.target.value)
           }} type="tel" />
         </div>
 
-        <div className='mb-3'>
+        <div className='mb-3 field'>
           <label htmlFor="lname">Date of Birth</label>
           <input onChange={e => {
             setDob(e.target.value)
           }} type="date" />
         </div>
 
-        <div className='mb-3'>
+        <div className='mb-3 field'>
           <label htmlFor="password">Password</label>
           <input onChange={e => {
             setPassword(e.target.value)
           }} type="password" />
         </div>
 
-        <div className='mb-3'>
+        <div className='mb-3 field'>
           <label htmlFor="confirm-password">Confirm Password</label>
           <input onChange={e => {
             setConfirmPassword(e.target.value)

@@ -15,7 +15,7 @@ export async function register(fname, lname, email, mobile, dob, password){
 
         const response = await axios.post(url, body)
 
-        return response
+        return response.data
     }
     catch(ex){
         console.log("Exception : " + ex)
@@ -31,9 +31,9 @@ export async function login(email, password){
             "password" : password
         }
 
-        const response = await axios.get(url, body)
+        const response = await axios.post(url, body)
 
-        return response
+        return response.data
     }
     catch(ex){
         console.log("Exception : " + ex)
